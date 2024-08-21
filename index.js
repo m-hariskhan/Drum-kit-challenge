@@ -46,5 +46,9 @@ document.querySelectorAll("button")[i].addEventListener("click", function(){
 });
 }
 
+document.addEventListener("keypress", function(event){
+    alert("key is press")
+})
+
 // var audio = new Audio("/sounds/tom-1.mp3")
 // audio.play();
