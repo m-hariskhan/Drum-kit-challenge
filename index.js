@@ -2,14 +2,24 @@
 // for(i=0; i<7; i++) OR 
 // as we are accsesing the html element so using DOM
 
+// checking for button press:
 for(var i=0; i<document.querySelectorAll("button").length; i++){
 
 document.querySelectorAll("button")[i].addEventListener("click", function(){
 
    var buttonInnerHTML= this.innerHTML
+   makeSound(buttonInnerHTML);
 
+});
+}
+// checking for key (on keyboard) press:
+document.addEventListener("keypress", function(event){
+    makeSound(event.key)
+})
+
+function makeSound(key){
     //using switch here 
-    switch (buttonInnerHTML) {
+    switch (key) {
         case "w":
             var crash = new Audio("/sounds/crash.mp3")
             crash.play()
@@ -38,17 +48,20 @@ document.querySelectorAll("button")[i].addEventListener("click", function(){
             var tom4 = new Audio("/sounds/tom-4.mp3")
             tom4.play()
             break;
-
+    
         default:
-            console.log(buttonInnerHTML);
+            console.log(key);
             break;
     }
-});
 }
 
-document.addEventListener("keypress", function(event){
-    alert("key is press")
-})
 
+
+// adding eventlistener to the whole document rather then adding to specific tags or (using queryselectors):
+// document.addEventListener("keypress", function(event){
+//     alert("key is press")
+// })
+
+// adding audio to js:
 // var audio = new Audio("/sounds/tom-1.mp3")
 // audio.play();

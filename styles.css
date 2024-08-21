@@ -10,11 +10,12 @@ h1 {
   text-shadow: 3px 0 #DA0463;
 
 }
-
-/* footer {
+.para{
+  font-size: 2rem;
   color: #DBEDF3;
-  font-family: sans-serif;
-} */
+  font-family: "Arvo", cursive;
+  text-shadow: 1px 0 #DA0463;
+}
 
 .w {
   background-image: url(images/crash.png);
@@ -80,6 +81,7 @@ h1 {
   width: 150px;
   height: 150px;
   text-align: center;
-  margin: 10px;
+  margin: 8px;
   background-color: white;
+  cursor: pointer;
 }
