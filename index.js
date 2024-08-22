@@ -9,12 +9,15 @@ document.querySelectorAll("button")[i].addEventListener("click", function(){
 
    var buttonInnerHTML= this.innerHTML
    makeSound(buttonInnerHTML);
+//    to add animation while on click
+   buttonAnimation(buttonInnerHTML);
 
 });
 }
 // checking for key (on keyboard) press:
 document.addEventListener("keypress", function(event){
-    makeSound(event.key)
+    makeSound(event.key);
+    buttonAnimation(event.key);
 })
 
 function makeSound(key){
@@ -54,14 +57,24 @@ function makeSound(key){
             break;
     }
 }
+// adding animation to the buttons using queryselector on keys:
+function buttonAnimation(currentKey){
+  var activeButton = document.querySelector("."+ currentKey)
+//   adding pre define css class "pressed":
+  activeButton.classList.add("pressed");
+//   for animation and to back the button into its previous condition use setTineout here:
+  setTimeout(function () {
+    activeButton.classList.remove("pressed")
+  }, 100);
+}
 
 
 
-// adding eventlistener to the whole document rather then adding to specific tags or (using queryselectors):
+// *adding eventlistener to the whole document rather then adding to specific tags or (using queryselectors):
 // document.addEventListener("keypress", function(event){
 //     alert("key is press")
 // })
 
-// adding audio to js:
+// *adding audio to js:
 // var audio = new Audio("/sounds/tom-1.mp3")
 // audio.play();
